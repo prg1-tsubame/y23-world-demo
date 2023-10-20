@@ -1,5 +1,7 @@
 package prg1.support.world
 
+import scala.util.control.Breaks.break
+
 import java.awt.image.BufferedImage
 import java.awt.{Color => JColor, Graphics2D}
 
@@ -116,14 +118,22 @@ object World {
     currentThread = Thread.currentThread
     currentWorld = world
     while (true) {
-      var interrupted = false
       if (debug) println(currentWorld)
-      try {
-        Thread.sleep(currentWorld._tick_ms)
-      } catch { case e: InterruptedException => { interrupted = true } }
-      try {
+      var now = System.currentTimeMillis
+      val till = now + World.currentWorld._tick_ms
 
-        if (!interrupted) currentWorld = currentWorld.tick()
+      while (now < till) {
+        try {
+          if (till <= now) break
+          else Thread.sleep(till - now)
+        } catch {
+          case e: InterruptedException => {
+            if (hasCanvas) canvas.repaint()
+          }
+        } finally { now = System.currentTimeMillis }
+      }
+      try {
+        currentWorld = currentWorld.tick()
         if (currentWorld == DoomsDay) {
           println("End of the world: Doom's day has arrived.")
           scala.sys.exit()
