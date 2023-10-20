@@ -1,6 +1,6 @@
 package prg1.lx02.counter
 
-import prg1.support.world.World
+import prg1.support.world._
 
 case class Counter(n: Int, tick_ms: Int) extends World(tick_ms) {
   override def tick() = {

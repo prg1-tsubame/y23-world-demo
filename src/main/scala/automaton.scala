@@ -1,7 +1,7 @@
 package prg1.lx02.automaton
 
 import scala.sys.exit
-import prg1.support.world.World
+import prg1.support.world._
 
 type Input = List[Char]
 type State = String
