@@ -3,7 +3,7 @@ package prg1.lx02.timer2
 
 import prg1.support.world._
 import prg1.support.color.Color
-import java.awt.{Color => JColor, Font, Graphics2D}
+import java.awt.{Color => JColor, Font}
 
 object Timer2 {
   private val ARIAL60B = new Font("Arial", Font.BOLD, 60)

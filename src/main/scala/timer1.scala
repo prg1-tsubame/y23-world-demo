@@ -5,8 +5,6 @@ import prg1.support.color._
 import java.awt.{Color => JColor, Font}
 
 object Timer1 {
-  val Black    = Color(JColor.black)
-  val White    = Color(JColor.white)
   private val ARIAL60B = new Font("Arial", Font.BOLD, 60)
 }
 

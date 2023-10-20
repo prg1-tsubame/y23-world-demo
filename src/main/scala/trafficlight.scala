@@ -2,7 +2,7 @@ package prg1.lx02.traffic_light
 
 import prg1.support.world._
 import prg1.support.color.Color
-import java.awt.{Color => JColor, Graphics2D}
+import java.awt.{Color => JColor}
 
 val Red    = Color(JColor.red)
 val Green  = Color(JColor.green)

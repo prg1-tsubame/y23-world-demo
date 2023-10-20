@@ -5,7 +5,6 @@ import scala.math.{max, min}
 import prg1.support.world._
 import prg1.support.color._
 import java.awt.Color => JColor
-import java.awt.event.KeyEvent => JKeyEvent
 
 
 case class Poton(centerX: Int, centerY: Int, tick_ms: Int) extends World(tick_ms) {
