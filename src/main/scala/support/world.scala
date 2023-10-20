@@ -101,9 +101,9 @@ object World {
     }
 
     reactions += {
-      case e: MouseClicked => handle(() => currentWorld.mouseClicked(e))
-      case e: MousePressed => handle(() => currentWorld.mousePressed(e))
-      case e: MouseDragged => handle(() => currentWorld.mouseDragged(e))
+      case e: MouseClicked  => handle(() => currentWorld.mouseClicked(e))
+      case e: MousePressed  => handle(() => currentWorld.mousePressed(e))
+      case e: MouseDragged  => handle(() => currentWorld.mouseDragged(e))
       case e: MouseReleased => handle(() => currentWorld.mouseReleased(e))
       case KeyTyped(source, c, y, z) => {
         if (World.debug) println((c, y, z))
@@ -120,7 +120,7 @@ object World {
     while (true) {
       if (debug) println(currentWorld)
       var now = System.currentTimeMillis
-      val till = now + World.currentWorld._tick_ms
+      val till = now + currentWorld._tick_ms
 
       while (now < till) {
         try {
@@ -166,6 +166,4 @@ object World {
 
     bigbang(world)
   }
-
-  @main def run = bigbang(new SimpleWorld)
 }

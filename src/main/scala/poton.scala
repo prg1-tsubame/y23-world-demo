@@ -57,7 +57,7 @@ object Poton {
 }
 
 // Run this app from sbt: [project lxz; runMain poton.A]
-@main def main = {
+@main def run = {
   import Poton._
   val world = Poton(400, BallRadius * 2, 100)
   World.bigbang2d(world, "Poton", 800, 600)
