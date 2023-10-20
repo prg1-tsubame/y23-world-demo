@@ -9,7 +9,7 @@ import scala.swing.Swing._
 import scala.swing.event._
 import scala.swing.{Frame, Panel}
 
-import prg1.graphics.color.Color
+import prg1.support.color.Color
 
 case class Pos(x: Int, y: Int)
 

@@ -1,4 +1,4 @@
-package prg1.graphics.color
+package prg1.support.color
 
 import java.awt.Color => JColor
 

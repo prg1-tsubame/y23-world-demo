@@ -1,7 +1,7 @@
 package prg1.lx02.timer1
 
 import prg1.support.world._
-import prg1.graphics.color._
+import prg1.support.color._
 import java.awt.{Color => JColor, Font}
 
 object Timer1 {

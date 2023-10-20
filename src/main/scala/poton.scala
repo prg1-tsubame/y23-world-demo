@@ -3,7 +3,7 @@ package prg1.lx02.poton
 import scala.math.{max, min}
 
 import prg1.support.world._
-import prg1.graphics.color._
+import prg1.support.color._
 import java.awt.Color => JColor
 import java.awt.event.KeyEvent => JKeyEvent
 
