@@ -5,7 +5,7 @@ import prg1.support.world._
 case class Counter(n: Int, tick_ms: Int) extends World(tick_ms) {
   override def tick() = {
     if (n == 5) throw new Exception("Some error")
-    if (n == 4) dooms_day("End of the world")
+    if (n == 4) dooms_day()
     else {
       println(n)
       Counter(n + 1, tick_ms)

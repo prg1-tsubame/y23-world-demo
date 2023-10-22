@@ -23,7 +23,7 @@ case class Counter(n: Int, x: Int, y: Int, tick_ms: Int) extends World(tick_ms) 
   override def keyTyped(c: Char) = {
     if (World.debug) println(c)
     c match {
-      case 'q' | 'Q' => dooms_day("Bye")
+      case 'q' | 'Q' => endOfWorld("Bye")
       case 'h' => Counter(n, x - 10, y, tick_ms)
       case 'l' => Counter(n, x + 10, y, tick_ms)
       case 'j' => Counter(n, x, y + 10, tick_ms)

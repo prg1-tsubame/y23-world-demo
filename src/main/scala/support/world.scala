@@ -61,18 +61,22 @@ abstract class World(tick_ms: Int) {
   protected def mouseDragged(e:  MouseDragged): World = defaultMouseAction("Mouse dragged", e)
   protected def mouseReleased(e: MouseReleased): World = defaultMouseAction("Mouse released", e)
 
-  def dooms_day(message: String): World = {
+  def dooms_day(): World = {
     World.DoomsDay
+  }
+
+  def endOfWorld(message: String): World = {
+    new DoomsDay(message)
   }
 }
 
-class DoomsDay extends World(0) {}
+case class DoomsDay(message: String) extends World(0) {}
 class SimpleWorld extends World(1000) {}
 
 object World {
   val debug = false
 
-  val DoomsDay: DoomsDay = new DoomsDay
+  val DoomsDay: DoomsDay = new DoomsDay(s"End of the World")
   var currentWorld: World = new SimpleWorld
   var currentThread: Thread = Thread.currentThread
 
@@ -134,9 +138,12 @@ object World {
       }
       try {
         currentWorld = currentWorld.tick()
-        if (currentWorld == DoomsDay) {
-          println("End of the world: Doom's day has arrived.")
-          scala.sys.exit()
+        currentWorld match {
+          case w: DoomsDay => {
+            println(s"Doom's day has arrived: ${w.message}")
+            scala.sys.exit()
+          }
+          case _ => ()
         }
         if (hasCanvas) canvas.repaint()
       } catch {
