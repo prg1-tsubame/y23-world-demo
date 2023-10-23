@@ -1,5 +1,5 @@
-.*
-!.gitignore
-project/metals.sbt
-project/project/
-target/
+/.*
+!/.gitignore
+/project/target/
+/target/
+/*.class
